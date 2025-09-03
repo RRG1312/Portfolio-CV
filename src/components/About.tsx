@@ -1,13 +1,16 @@
 export default function About() {
   const skills = [
-    { name: 'React', icon: '⚛️', level: 90 },
-    { name: 'Next.js', icon: '🔺', level: 85 },
-    { name: 'TypeScript', icon: '📘', level: 88 },
-    { name: 'Node.js', icon: '🟢', level: 82 },
+    { name: 'React', icon: '⚛️', level: 50 },
+    { name: 'Next.js', icon: '🔺', level: 30 },
+    { name: 'TypeScript', icon: '📘', level: 20 },
+    { name: 'Node.js', icon: '🟢', level: 10 },
     { name: 'Python', icon: '🐍', level: 75 },
-    { name: 'PostgreSQL', icon: '🐘', level: 80 },
-    { name: 'MongoDB', icon: '🍃', level: 78 },
-    { name: 'AWS', icon: '☁️', level: 70 },
+    { name: 'PostgreSQL', icon: '🐘', level: 60 },
+    { name: 'MongoDB', icon: '🍃', level: 70 },
+    { name: 'AWS', icon: '☁️', level: 0 },
+    { name: 'Java', icon: '☕', level: 80 },
+    { name: 'Android', icon: '🤖', level: 70 },
+    { name: 'SQL', icon: '🗄️', level: 70 },
   ]
 
   const experiences = [
