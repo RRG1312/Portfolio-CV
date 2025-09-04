@@ -7,6 +7,13 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Portfolio - CV Digital',
   description: 'Mi portfolio personal y CV digital con proyectos destacados de GitHub',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' }
+    ],
+    apple: '/icon.png',
+  },
 }
 
 export default function RootLayout({
