@@ -1,19 +1,108 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      render: (element: string | Element, options: {
+        sitekey: string;
+        callback?: (token: string) => void;
+        theme?: 'light' | 'dark';
+      }) => number;
+      execute: (widgetId?: number) => void;
+      getResponse: (widgetId?: number) => string;
+      reset: (widgetId?: number) => void;
+    };
+  }
+}
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    budget: '',
+    message: ''
+  })
+  const recaptchaRef = useRef<HTMLDivElement>(null)
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    // Load reCAPTCHA when the component mounts
+    const loadRecaptcha = () => {
+      if (window.grecaptcha && recaptchaRef.current && !recaptchaLoaded) {
+        // Check if recaptcha is already rendered in this element
+        if (recaptchaRef.current.children.length === 0) {
+          window.grecaptcha.render(recaptchaRef.current, {
+            sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LflMr4rAAAAAFgf6ebRDZH99_mKdbW1EK_eHU5Z',
+            theme: 'light'
+          })
+          setRecaptchaLoaded(true)
+        }
+      }
+    }
+
+    if (window.grecaptcha) {
+      loadRecaptcha()
+    } else {
+      const interval = setInterval(() => {
+        if (window.grecaptcha) {
+          loadRecaptcha()
+          clearInterval(interval)
+        }
+      }, 100)
+
+      return () => clearInterval(interval)
+    }
+  }, [])
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormStatus('sending')
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus('sent')
+
+    // Get reCAPTCHA token
+    const recaptchaToken = window.grecaptcha?.getResponse()
+    if (!recaptchaToken) {
+      setFormStatus('error')
+      alert('Por favor completa el reCAPTCHA')
+      return
+    }
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
+      })
+
+      if (response.ok) {
+        setFormStatus('sent')
+        setFormData({ name: '', email: '', subject: '', budget: '', message: '' })
+        window.grecaptcha?.reset()
+        setTimeout(() => setFormStatus('idle'), 3000)
+      } else {
+        const error = await response.json()
+        console.error('Error:', error)
+        setFormStatus('error')
+        setTimeout(() => setFormStatus('idle'), 3000)
+      }
+    } catch (error) {
+      console.error('Error sending email:', error)
+      setFormStatus('error')
       setTimeout(() => setFormStatus('idle'), 3000)
-    }, 1000)
+    }
   }
 
   const contactMethods = [
@@ -117,6 +206,9 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
                   placeholder="Tu nombre completo"
@@ -130,6 +222,9 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
                   placeholder="tu@email.com"
@@ -143,6 +238,9 @@ export default function Contact() {
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
                   placeholder="¿De qué quieres hablar?"
                 />
@@ -154,6 +252,9 @@ export default function Contact() {
                 </label>
                 <select
                   id="budget"
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white transition-all duration-300"
                 >
                   <option value="">Seleccionar rango</option>
@@ -170,11 +271,20 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={6}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300 resize-none"
                   placeholder="Cuéntame sobre tu proyecto, tus ideas, o simplemente di hola..."
                 ></textarea>
+              </div>
+              
+              <div className="md:col-span-2">
+                <div className="mb-6 flex justify-center">
+                  <div ref={recaptchaRef}></div>
+                </div>
               </div>
               
               <div className="md:col-span-2">

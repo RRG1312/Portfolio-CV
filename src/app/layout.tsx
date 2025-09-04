@@ -16,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="dark">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        {children}
+      </body>
     </html>
   )
 }
