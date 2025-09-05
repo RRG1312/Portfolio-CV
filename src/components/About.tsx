@@ -143,7 +143,8 @@ export default function About() {
                   { name: 'Cloud Computing', icon: '☁️' },
                   { name: 'DevOps', icon: '⚙️' },
                   { name: 'Web Development', icon: '📱' },
-                  { name: 'UI/UX Design', icon: '🎨' }
+                  { name: 'UI/UX Design', icon: '🎨' },
+                  { name: 'Generative AI', icon: '🤖' }
                 ].map((interest) => (
                   <div
                     key={interest.name}
