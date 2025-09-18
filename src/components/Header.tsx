@@ -90,7 +90,7 @@ export default function Header() {
             </h1>
             
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-8 tracking-wide">
-              Desarrollador Full Stack
+              Ingeniero Informático
             </h2>
             
             {user?.bio && (

@@ -6,6 +6,7 @@ export default function About() {
         { name: 'Java', icon: '☕', level: 80 },
         { name: 'Python', icon: '🐍', level: 60 },
         { name: 'JavaScript', icon: '🟨', level: 30 },
+        { name: 'C', icon: '⚙️', level: 50 },
         { name: 'TypeScript', icon: '🔵', level: 10 },
       ]
     },
@@ -30,9 +31,10 @@ export default function About() {
       ]
     },
     {
-      title: 'Testing & IA',
+      title: 'Testing, Sistemas & IA',
       skills: [
         { name: 'JUnit', icon: '✅', level: 40 },
+        { name: 'Linux', icon: '🐧', level: 60 },
         { name: 'Machine Learning', icon: '🧠', level: 20 },
         { name: 'Prompt Engineering', icon: '💭', level: 50 },
       ]
