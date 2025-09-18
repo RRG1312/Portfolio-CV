@@ -6,7 +6,7 @@ export default function About() {
         { name: 'Java', icon: '☕', level: 80 },
         { name: 'Python', icon: '🐍', level: 60 },
         { name: 'JavaScript', icon: '🟨', level: 30 },
-        { name: 'C', icon: '⚙️', level: 50 },
+        { name: 'C', icon: '⚙️', level: 30 },
         { name: 'TypeScript', icon: '🔵', level: 10 },
       ]
     },
