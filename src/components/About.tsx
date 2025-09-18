@@ -3,7 +3,7 @@ export default function About() {
     {
       title: 'Lenguajes de Programación',
       skills: [
-        { name: 'Java', icon: '☕', level: 80 },
+        { name: 'Java', icon: '☕', level: 75 },
         { name: 'Python', icon: '🐍', level: 60 },
         { name: 'JavaScript', icon: '🟨', level: 30 },
         { name: 'C', icon: '⚙️', level: 30 },
