@@ -11,15 +11,27 @@ export default function Projects() {
     const fetchRepos = async () => {
       try {
         const username = 'RRG1312'
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+
         const response = await fetch(
-          `https://api.github.com/users/${username}/repos?sort=updated&per_page=10`
+          `https://api.github.com/users/${username}/repos?sort=updated&per_page=10`,
+          {
+            signal: controller.signal,
+            headers: {
+              'Accept': 'application/vnd.github.v3+json'
+            }
+          }
         )
+
+        clearTimeout(timeoutId)
+
         if (response.ok) {
           const reposData = await response.json()
           // Filtrar repos más importantes y obtener todos, no solo los con estrellas
           const featuredRepos = reposData
-            .filter((repo: GitHubRepo) => 
-              !repo.name.includes('.github') && 
+            .filter((repo: GitHubRepo) =>
+              !repo.name.includes('.github') &&
               !repo.name.toLowerCase().includes('readme') &&
               repo.description // Solo repos con descripción
             )
@@ -32,9 +44,24 @@ export default function Projects() {
             })
             .slice(0, 6)
           setRepos(featuredRepos)
+        } else if (response.status === 403) {
+          console.warn('GitHub API rate limit exceeded, using fallback data')
+          setRepos([]) // Could set fallback data here
+        } else {
+          console.error(`GitHub API responded with status: ${response.status}`)
+          setRepos([])
         }
       } catch (error) {
-        console.error('Error fetching GitHub repos:', error)
+        if (error instanceof Error) {
+          if (error.name === 'AbortError') {
+            console.warn('GitHub API request timed out')
+          } else {
+            console.error('Error fetching GitHub repos:', error.message)
+          }
+        } else {
+          console.error('Unknown error fetching GitHub repos:', error)
+        }
+        setRepos([]) // Set empty array on error to prevent UI crashes
       } finally {
         setLoading(false)
       }

@@ -32,29 +32,48 @@ export default function Contact() {
   useEffect(() => {
     // Load reCAPTCHA when the component mounts
     const loadRecaptcha = () => {
-      if (window.grecaptcha && recaptchaRef.current && !recaptchaLoaded) {
-        // Check if recaptcha is already rendered in this element
-        if (recaptchaRef.current.children.length === 0) {
-          window.grecaptcha.render(recaptchaRef.current, {
-            sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LflMr4rAAAAAFgf6ebRDZH99_mKdbW1EK_eHU5Z',
-            theme: 'light'
-          })
-          setRecaptchaLoaded(true)
+      try {
+        if (window.grecaptcha && recaptchaRef.current && !recaptchaLoaded) {
+          // Check if recaptcha is already rendered in this element
+          if (recaptchaRef.current.children.length === 0) {
+            const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LflMr4rAAAAAFgf6ebRDZH99_mKdbW1EK_eHU5Z'
+            window.grecaptcha.render(recaptchaRef.current, {
+              sitekey: siteKey,
+              theme: 'light',
+              callback: () => {
+                console.log('reCAPTCHA solved')
+              },
+              'error-callback': () => {
+                console.error('reCAPTCHA error occurred')
+              }
+            })
+            setRecaptchaLoaded(true)
+          }
         }
+      } catch (error) {
+        console.error('Error loading reCAPTCHA:', error)
       }
     }
 
-    if (window.grecaptcha) {
-      loadRecaptcha()
-    } else {
-      const interval = setInterval(() => {
-        if (window.grecaptcha) {
-          loadRecaptcha()
-          clearInterval(interval)
-        }
-      }, 100)
+    if (typeof window !== 'undefined') {
+      if (window.grecaptcha) {
+        loadRecaptcha()
+      } else {
+        let attempts = 0
+        const maxAttempts = 50 // 5 seconds maximum
+        const interval = setInterval(() => {
+          attempts++
+          if (window.grecaptcha) {
+            loadRecaptcha()
+            clearInterval(interval)
+          } else if (attempts >= maxAttempts) {
+            console.warn('reCAPTCHA failed to load after 5 seconds')
+            clearInterval(interval)
+          }
+        }, 100)
 
-      return () => clearInterval(interval)
+        return () => clearInterval(interval)
+      }
     }
   }, [])
 
