@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { GitHubUser } from '@/types/github'
 
 export default function Header() {
@@ -11,13 +12,36 @@ export default function Header() {
     const fetchUserData = async () => {
       try {
         const username = 'RRG1312'
-        const response = await fetch(`https://api.github.com/users/${username}`)
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+
+        const response = await fetch(`https://api.github.com/users/${username}`, {
+          signal: controller.signal,
+          headers: {
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        })
+
+        clearTimeout(timeoutId)
+
         if (response.ok) {
           const userData = await response.json()
           setUser(userData)
+        } else if (response.status === 403) {
+          console.warn('GitHub API rate limit exceeded for user data')
+        } else {
+          console.error(`GitHub API responded with status: ${response.status}`)
         }
       } catch (error) {
-        console.error('Error fetching GitHub user:', error)
+        if (error instanceof Error) {
+          if (error.name === 'AbortError') {
+            console.warn('GitHub API request timed out for user data')
+          } else {
+            console.error('Error fetching GitHub user:', error.message)
+          }
+        } else {
+          console.error('Unknown error fetching GitHub user:', error)
+        }
       } finally {
         setLoading(false)
       }
@@ -48,10 +72,13 @@ export default function Header() {
             {user?.avatar_url && (
               <div className="relative mb-8">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur animate-glow"></div>
-                <img
+                <Image
                   src={user.avatar_url}
                   alt={user.name || user.login}
+                  width={160}
+                  height={160}
                   className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto border-4 border-white/50 shadow-2xl hover-lift"
+                  priority
                 />
               </div>
             )}

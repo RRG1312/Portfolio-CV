@@ -8,6 +8,7 @@ declare global {
       render: (element: string | Element, options: {
         sitekey: string;
         callback?: (token: string) => void;
+        'error-callback'?: () => void;
         theme?: 'light' | 'dark';
       }) => number;
       execute: (widgetId?: number) => void;
@@ -75,7 +76,7 @@ export default function Contact() {
         return () => clearInterval(interval)
       }
     }
-  }, [])
+  }, [recaptchaLoaded])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
