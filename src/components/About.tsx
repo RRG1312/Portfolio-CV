@@ -1,30 +1,62 @@
 export default function About() {
-  const skills = [
-    { name: 'React', icon: '⚛️', level: 50 },
-    { name: 'Next.js', icon: '🔺', level: 30 },
-    { name: 'TypeScript', icon: '📘', level: 20 },
-    { name: 'Node.js', icon: '🟢', level: 10 },
-    { name: 'Python', icon: '🐍', level: 75 },
-    { name: 'PostgreSQL', icon: '🐘', level: 60 },
-    { name: 'MongoDB', icon: '🍃', level: 70 },
-    { name: 'AWS', icon: '☁️', level: 0 },
-    { name: 'Java', icon: '☕', level: 80 },
-    { name: 'Android', icon: '🤖', level: 70 },
-    { name: 'SQL', icon: '🗄️', level: 70 },
+  const skillCategories = [
+    {
+      title: 'Lenguajes de Programación',
+      skills: [
+        { name: 'Java', icon: '☕', level: 80 },
+        { name: 'Python', icon: '🐍', level: 60 },
+        { name: 'JavaScript', icon: '🟨', level: 30 },
+        { name: 'TypeScript', icon: '🔵', level: 10 },
+      ]
+    },
+    {
+      title: 'Frontend',
+      skills: [
+        { name: 'HTML', icon: '📄', level: 70 },
+        { name: 'CSS', icon: '🎨', level: 50 },
+        { name: 'Tailwind CSS', icon: '💨', level: 10 },
+        { name: 'React', icon: '⚛️', level: 25 },
+        { name: 'Next.js', icon: '▲', level: 20 },
+      ]
+    },
+    {
+      title: 'Backend & Bases de Datos',
+      skills: [
+        { name: 'Node.js', icon: '💚', level: 10 },
+        { name: 'Django', icon: '🔥', level: 30 },
+        { name: 'PostgreSQL', icon: '🐘', level: 70 },
+        { name: 'MongoDB', icon: '🍃', level: 70 },
+        { name: 'SQL', icon: '💾', level: 70 },
+      ]
+    },
+    {
+      title: 'Testing & IA',
+      skills: [
+        { name: 'JUnit', icon: '✅', level: 40 },
+        { name: 'Machine Learning', icon: '🧠', level: 20 },
+        { name: 'Prompt Engineering', icon: '💭', level: 50 },
+      ]
+    }
   ]
 
   const experiences = [
     {
-      title: 'Grado en Ingenieria Informatica',
+      title: 'Grado en Ingeniería Informática',
       company: 'Universidad Alfonso X el Sabio',
       period: '2022 - Presente',
-      description: 'Estudios superiores en ingenieria informatica'
+      description: 'Estudios superiores en ingeniería informática con especialización en desarrollo de software y tecnologías emergentes'
     },
     {
-      title: 'Tecnico Superior en Desarrollo de Aplicaciones Multiplataforma',
+      title: 'Desarrollador Web',
+      company: 'Dencanto Community',
+      period: '2022',
+      description: 'Desarrollo, mantenimiento y debugging de una plataforma web utilizando Django. Resolución de errores y optimización del rendimiento del sistema'
+    },
+    {
+      title: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma',
       company: 'Escuela Arte Granada',
       period: '2020 - 2022',
-      description: 'Desarrollo de apps con android studio y webs usando django'
+      description: 'Desarrollo de aplicaciones multiplataforma cone nfoque Android'
     }
   ]
 
@@ -100,28 +132,37 @@ export default function About() {
                 </span>
                 Habilidades Técnicas
               </h3>
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-lg">{skill.icon}</span>
-                        <span className="font-medium text-gray-900 dark:text-white">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-400">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div 
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-1000 group-hover:shadow-lg group-hover:shadow-blue-500/25"
-                        style={{ 
-                          width: `${skill.level}%`,
-                          animationDelay: `${index * 100}ms`
-                        }}
-                      ></div>
+              <div className="space-y-6">
+                {skillCategories.map((category, categoryIndex) => (
+                  <div key={category.title} className="space-y-3">
+                    <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700 pb-2">
+                      {category.title}
+                    </h4>
+                    <div className="space-y-3">
+                      {category.skills.map((skill, skillIndex) => (
+                        <div key={skill.name} className="group">
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center space-x-2">
+                              <span className="text-lg">{skill.icon}</span>
+                              <span className="font-medium text-gray-900 dark:text-white">
+                                {skill.name}
+                              </span>
+                            </div>
+                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                              {skill.level}%
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                            <div
+                              className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-1000 group-hover:shadow-lg group-hover:shadow-blue-500/25"
+                              style={{
+                                width: `${skill.level}%`,
+                                animationDelay: `${(categoryIndex * 100) + (skillIndex * 50)}ms`
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -139,10 +180,10 @@ export default function About() {
               <div className="grid grid-cols-1 gap-3">
                 {[
                   { name: 'Open Source', icon: '🔓' },
-                  { name: 'Machine Learning', icon: '🤖' },
+                  { name: 'Machine Learning', icon: '🧠' },
                   { name: 'Cloud Computing', icon: '☁️' },
                   { name: 'DevOps', icon: '⚙️' },
-                  { name: 'Web Development', icon: '📱' },
+                  { name: 'Web Development', icon: '🌐' },
                   { name: 'UI/UX Design', icon: '🎨' },
                   { name: 'Generative AI', icon: '🤖' }
                 ].map((interest) => (
