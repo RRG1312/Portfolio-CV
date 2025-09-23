@@ -121,10 +121,9 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 ## 💡 Ideas para mejoras futuras
 
 - [ ] Agregar animaciones con Framer Motion
-- [ ] Implementar formulario de contacto funcional
+- [X] Implementar formulario de contacto funcional
 - [ ] Agregar blog integrado
 - [ ] Integración con más APIs (LinkedIn, Twitter)
-- [ ] Modo offline con Service Workers
 - [ ] Métricas y analytics
 - [ ] Soporte para múltiples idiomas
 
