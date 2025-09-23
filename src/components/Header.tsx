@@ -153,15 +153,15 @@ export default function Header() {
                 duration={0.8}
               >
                 {[
-                  <div className="glass-card p-6 rounded-2xl text-center hover-lift">
+                  <div key="repos" className="glass-card p-6 rounded-2xl text-center hover-lift">
                     <div className="text-2xl sm:text-3xl font-bold gradient-text mb-2">{user.public_repos}</div>
                     <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Repositorios</div>
                   </div>,
-                  <div className="glass-card p-6 rounded-2xl text-center hover-lift">
+                  <div key="followers" className="glass-card p-6 rounded-2xl text-center hover-lift">
                     <div className="text-2xl sm:text-3xl font-bold gradient-text mb-2">{user.followers}</div>
                     <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Seguidores</div>
                   </div>,
-                  <div className="glass-card p-6 rounded-2xl text-center hover-lift">
+                  <div key="following" className="glass-card p-6 rounded-2xl text-center hover-lift">
                     <div className="text-2xl sm:text-3xl font-bold gradient-text mb-2">{user.following}</div>
                     <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Siguiendo</div>
                   </div>
