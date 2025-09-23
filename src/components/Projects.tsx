@@ -165,11 +165,11 @@ export default function Projects() {
                 <div className={`w-full h-full bg-gradient-to-br ${
                   [
                     'from-primary-200 to-primary-600',
-                    'from-primary-100 to-gray-500',
-                    'from-gray-400 to-primary-700',
-                    'from-primary-50 to-primary-400',
-                    'from-primary-300 to-gray-600',
-                    'from-gray-500 to-primary-800'
+                    'from-primary-800 to-gray-500',
+                    'from-gray-300 to-primary-600',
+                    'from-primary-100 to-primary-500',
+                    'from-primary-600 to-gray-500',
+                    'from-gray-400 to-primary-600'
                   ][index % 6]
                 } flex items-center justify-center`}>
                   <div className="text-white text-center">
