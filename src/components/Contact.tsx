@@ -161,12 +161,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 -right-32 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 -left-32 w-96 h-96 bg-gradient-to-tr from-teal-400/10 to-blue-600/10 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
-      </div>
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">

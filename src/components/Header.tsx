@@ -52,19 +52,14 @@ export default function Header() {
 
   if (loading) {
     return (
-      <header className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="animate-spin rounded-full h-32 w-32 border-4 border-blue-500/20 border-t-blue-500 animate-glow"></div>
+      <header className="min-h-screen flex items-center justify-center relative">
+        <div className="animate-spin rounded-full h-32 w-32 border-4 border-gray-200 border-t-accent"></div>
       </header>
     )
   }
 
   return (
-    <header className="min-h-screen relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-teal-400/20 to-blue-600/20 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
-      </div>
+    <header className="min-h-screen relative overflow-hidden">
       
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-5xl mx-auto">

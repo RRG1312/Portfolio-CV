@@ -11,6 +11,12 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'text-secondary': "var(--text-secondary)",
+        accent: "var(--accent)",
+        'accent-light': "var(--accent-light)",
+        surface: "var(--surface)",
+        'surface-secondary': "var(--surface-secondary)",
+        border: "var(--border)",
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
