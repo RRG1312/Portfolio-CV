@@ -63,11 +63,11 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-surface relative overflow-hidden">
+      {/* Subtle background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 -right-20 w-72 h-72 bg-blue-400/5 dark:bg-blue-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 -left-20 w-72 h-72 bg-purple-400/5 dark:bg-purple-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 -right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 -left-20 w-72 h-72 bg-accent-light/5 rounded-full blur-3xl"></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
@@ -75,7 +75,7 @@ export default function About() {
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
             Sobre mí
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
             Desarrollador apasionado por crear experiencias digitales excepcionales
           </p>
         </div>
@@ -83,42 +83,42 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - About Text */}
           <div className="space-y-8">
-            <div className="glass-card p-8 rounded-2xl hover-lift">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
-                <span className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white mr-3">
+            <div className="glass-card p-8 rounded-lg hover-lift">
+              <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center">
+                <span className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white mr-3">
                   🚀
                 </span>
                 Mi Historia
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              <p className="text-text-secondary mb-6 leading-relaxed">
                 Impulsado por la curiosidad y una pasión por la innovación, me enfoco en explorar el 
                 mundo del desarrollo web y la inteligencia artificial. Disfruto dar vida a las ideas 
                 a través del código, combinando creatividad y tecnología para construir soluciones con impacto.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              <p className="text-text-secondary mb-6 leading-relaxed">
                 Actualmente, en el último año de mi carrera en Ingeniería Informática, trabajo para 
                 convertirme en desarrollador full-stack mientras me especializo en IA. En un proceso constante 
                 de aprendizaje y mejora, veo cada desafío como una oportunidad para crecer y dar forma al futuro 
-                con la tecnología..
+                con la tecnología.
               </p>
             </div>
 
             {/* Experience */}
-            <div className="glass-card p-8 rounded-2xl hover-lift">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
-                <span className="w-8 h-8 bg-gradient-to-r from-green-600 to-teal-600 rounded-lg flex items-center justify-center text-white mr-3">
+            <div className="glass-card p-8 rounded-lg hover-lift">
+              <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center">
+                <span className="w-8 h-8 bg-accent-light rounded-lg flex items-center justify-center text-white mr-3">
                   💼
                 </span>
                 Experiencia
               </h3>
               <div className="space-y-6">
                 {experiences.map((exp, index) => (
-                  <div key={index} className="border-l-2 border-blue-200 dark:border-blue-800 pl-6 relative">
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{exp.title}</h4>
-                    <p className="text-blue-600 dark:text-blue-400 text-sm font-medium">{exp.company}</p>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">{exp.period}</p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm">{exp.description}</p>
+                  <div key={index} className="border-l-2 border-border pl-6 relative">
+                    <div className="absolute -left-2 top-0 w-4 h-4 bg-accent-light rounded-full"></div>
+                    <h4 className="font-semibold text-foreground">{exp.title}</h4>
+                    <p className="text-accent-light text-sm font-medium">{exp.company}</p>
+                    <p className="text-text-secondary text-sm mb-2">{exp.period}</p>
+                    <p className="text-text-secondary text-sm">{exp.description}</p>
                   </div>
                 ))}
               </div>
@@ -127,9 +127,9 @@ export default function About() {
           
           {/* Right Column - Skills */}
           <div className="space-y-8">
-            <div className="glass-card p-8 rounded-2xl hover-lift">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
-                <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center text-white mr-3">
+            <div className="glass-card p-8 rounded-lg hover-lift">
+              <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center">
+                <span className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white mr-3">
                   ⚡
                 </span>
                 Habilidades Técnicas
@@ -137,7 +137,7 @@ export default function About() {
               <div className="space-y-6">
                 {skillCategories.map((category, categoryIndex) => (
                   <div key={category.title} className="space-y-3">
-                    <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700 pb-2">
+                    <h4 className="text-lg font-semibold text-foreground border-b border-border pb-2">
                       {category.title}
                     </h4>
                     <div className="space-y-3">
@@ -146,17 +146,17 @@ export default function About() {
                           <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center space-x-2">
                               <span className="text-lg">{skill.icon}</span>
-                              <span className="font-medium text-gray-900 dark:text-white">
+                              <span className="font-medium text-foreground">
                                 {skill.name}
                               </span>
                             </div>
-                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                            <span className="text-sm text-text-secondary">
                               {skill.level}%
                             </span>
                           </div>
-                          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                          <div className="w-full bg-border rounded-full h-2">
                             <div
-                              className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-1000 group-hover:shadow-lg group-hover:shadow-blue-500/25"
+                              className="bg-gradient-to-r from-accent to-accent-light h-2 rounded-full transition-all duration-1000"
                               style={{
                                 width: `${skill.level}%`,
                                 animationDelay: `${(categoryIndex * 100) + (skillIndex * 50)}ms`
@@ -172,9 +172,9 @@ export default function About() {
             </div>
             
             {/* Interests */}
-            <div className="glass-card p-8 rounded-2xl hover-lift">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
-                <span className="w-8 h-8 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg flex items-center justify-center text-white mr-3">
+            <div className="glass-card p-8 rounded-lg hover-lift">
+              <h3 className="text-2xl font-bold mb-6 text-foreground flex items-center">
+                <span className="w-8 h-8 bg-accent-light rounded-lg flex items-center justify-center text-white mr-3">
                   🎯
                 </span>
                 Intereses
@@ -191,10 +191,10 @@ export default function About() {
                 ].map((interest) => (
                   <div
                     key={interest.name}
-                    className="flex items-center space-x-3 p-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/30 dark:hover:to-purple-900/30 transition-all duration-300 hover-lift"
+                    className="flex items-center space-x-3 p-3 bg-surface-secondary rounded-lg hover:bg-border transition-all duration-200 hover-lift"
                   >
                     <span className="text-lg">{interest.icon}</span>
-                    <span className="font-medium text-gray-800 dark:text-gray-200">
+                    <span className="font-medium text-foreground">
                       {interest.name}
                     </span>
                   </div>

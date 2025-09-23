@@ -118,7 +118,7 @@ export default function Projects() {
 
   if (loading) {
     return (
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16 gradient-text">
             Proyectos Destacados
@@ -126,11 +126,11 @@ export default function Projects() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="animate-pulse">
-                <div className="glass-card rounded-2xl overflow-hidden">
-                  <div className="h-48 bg-gradient-to-r from-blue-400/20 to-purple-600/20"></div>
+                <div className="glass-card rounded-lg overflow-hidden">
+                  <div className="h-48 bg-surface-secondary"></div>
                   <div className="p-6">
-                    <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded mb-2"></div>
-                    <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+                    <div className="h-4 bg-border rounded mb-2"></div>
+                    <div className="h-3 bg-border rounded w-3/4"></div>
                   </div>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function Projects() {
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
             Proyectos Destacados
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
             Una selección de mis proyectos más recientes y destacados en GitHub
           </p>
         </div>
@@ -157,19 +157,19 @@ export default function Projects() {
           {repos.map((repo, index) => (
             <div
               key={repo.id}
-              className="group glass-card rounded-2xl overflow-hidden hover-lift border border-white/20 dark:border-gray-700/30"
+              className="group glass-card rounded-lg overflow-hidden hover-lift"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
                 <div className={`w-full h-full bg-gradient-to-br ${
                   [
-                    'from-blue-400 to-purple-600',
-                    'from-green-400 to-teal-600', 
-                    'from-purple-400 to-pink-600',
-                    'from-yellow-400 to-orange-600',
-                    'from-indigo-400 to-blue-600',
-                    'from-pink-400 to-red-600'
+                    'from-accent to-accent-light',
+                    'from-gray-400 to-gray-600',
+                    'from-accent-light to-accent',
+                    'from-gray-500 to-gray-700',
+                    'from-accent/80 to-accent-light/80',
+                    'from-gray-600 to-gray-800'
                   ][index % 6]
                 } flex items-center justify-center`}>
                   <div className="text-white text-center">
@@ -194,12 +194,12 @@ export default function Projects() {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-accent-light transition-colors">
                     {repo.name}
                   </h3>
                 </div>
                 
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed line-clamp-2">
+                <p className="text-text-secondary text-sm mb-4 leading-relaxed line-clamp-2">
                   {repo.description || 'Proyecto en desarrollo...'}
                 </p>
                 
@@ -211,13 +211,13 @@ export default function Projects() {
                         className="w-3 h-3 rounded-full"
                         style={{ backgroundColor: getLanguageColor(repo.language) }}
                       ></div>
-                      <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
+                      <span className="text-sm text-foreground font-medium">
                         {repo.language}
                       </span>
                     </div>
                   )}
                   
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                  <div className="text-xs text-text-secondary">
                     {new Date(repo.updated_at).toLocaleDateString('es-ES')}
                   </div>
                 </div>
@@ -228,7 +228,7 @@ export default function Projects() {
                     {repo.topics.slice(0, 3).map((topic) => (
                       <span
                         key={topic}
-                        className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-xs font-medium"
+                        className="bg-surface-secondary text-accent px-2 py-1 rounded-full text-xs font-medium"
                       >
                         {topic}
                       </span>
@@ -242,7 +242,7 @@ export default function Projects() {
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-0.5"
+                    className="flex-1 text-center bg-accent text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-accent/90 transition-all duration-200 hover-lift"
                   >
                     Ver Código
                   </a>
@@ -251,7 +251,7 @@ export default function Projects() {
                       href={repo.homepage}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center glass-card text-gray-700 dark:text-gray-300 text-sm font-semibold py-2 px-4 rounded-lg hover:bg-white/20 transition-all duration-300"
+                      className="flex-1 text-center glass-card text-foreground text-sm font-semibold py-2 px-4 rounded-lg hover-lift"
                     >
                       Demo
                     </a>
@@ -267,7 +267,7 @@ export default function Projects() {
             href="https://github.com/RRG1312"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 dark:from-white dark:to-gray-100 text-white dark:text-gray-900 font-semibold px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-gray-500/25 transition-all duration-300 hover:-translate-y-1"
+            className="inline-block bg-accent text-white font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-all duration-200 hover-lift"
           >
             Ver todos los proyectos en GitHub →
           </a>

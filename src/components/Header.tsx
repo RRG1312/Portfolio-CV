@@ -52,18 +52,18 @@ export default function Header() {
 
   if (loading) {
     return (
-      <header className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="animate-spin rounded-full h-32 w-32 border-4 border-blue-500/20 border-t-blue-500 animate-glow"></div>
+      <header className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="animate-spin rounded-full h-32 w-32 border-4 border-gray-200 border-t-accent"></div>
       </header>
     )
   }
 
   return (
-    <header className="min-h-screen relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Animated background elements */}
+    <header className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* Subtle animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-teal-400/20 to-blue-600/20 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
+        <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-gray-200/10 to-gray-300/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-accent-light/5 to-accent/5 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
       </div>
       
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -71,13 +71,13 @@ export default function Header() {
           <div className="mb-12">
             {user?.avatar_url && (
               <div className="relative mb-8">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur animate-glow"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-light rounded-full blur opacity-20"></div>
                 <Image
                   src={user.avatar_url}
                   alt={user.name || user.login}
                   width={160}
                   height={160}
-                  className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto border-4 border-white/50 shadow-2xl hover-lift"
+                  className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto border-4 border-white shadow-lg hover-lift"
                   priority
                 />
               </div>
@@ -89,12 +89,12 @@ export default function Header() {
               </span>
             </h1>
             
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-8 tracking-wide">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-text-secondary mb-8 tracking-wide">
               Ingeniero Informático
             </h2>
             
             {user?.bio && (
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
                 {user.bio}
               </p>
             )}
@@ -102,12 +102,12 @@ export default function Header() {
           
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
             {user?.location && (
-              <span className="glass-card text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium hover-lift">
+              <span className="glass-card text-accent px-4 py-2 rounded-full text-sm font-medium hover-lift">
                 📍 {user.location}
               </span>
             )}
             {user?.company && (
-              <span className="glass-card text-green-800 dark:text-green-200 px-4 py-2 rounded-full text-sm font-medium hover-lift">
+              <span className="glass-card text-accent-light px-4 py-2 rounded-full text-sm font-medium hover-lift">
                 🏢 {user.company}
               </span>
             )}
@@ -119,10 +119,9 @@ export default function Header() {
                 href={user.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1"
+                className="group relative px-8 py-4 bg-accent text-white font-medium rounded-lg hover:bg-accent/90 transition-all duration-200 hover-lift"
               >
                 <span className="relative z-10">Ver GitHub</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
             )}
             {user?.blog && (
@@ -130,7 +129,7 @@ export default function Header() {
                 href={user.blog.startsWith('http') ? user.blog : `https://${user.blog}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 glass-card text-gray-800 dark:text-white font-semibold rounded-xl hover:bg-white/20 hover-lift"
+                className="px-8 py-4 glass-card text-foreground font-medium rounded-lg hover-lift"
               >
                 Sitio Web
               </a>
@@ -139,17 +138,17 @@ export default function Header() {
 
           {user && (
             <div className="grid grid-cols-3 gap-6 sm:gap-8 max-w-lg mx-auto">
-              <div className="glass-card p-6 rounded-2xl text-center hover-lift">
-                <div className="text-2xl sm:text-3xl font-bold gradient-text mb-2">{user.public_repos}</div>
-                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Repositorios</div>
+              <div className="glass-card p-6 rounded-lg text-center hover-lift">
+                <div className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{user.public_repos}</div>
+                <div className="text-sm sm:text-base text-text-secondary font-medium">Repositorios</div>
               </div>
-              <div className="glass-card p-6 rounded-2xl text-center hover-lift">
-                <div className="text-2xl sm:text-3xl font-bold gradient-text mb-2">{user.followers}</div>
-                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Seguidores</div>
+              <div className="glass-card p-6 rounded-lg text-center hover-lift">
+                <div className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{user.followers}</div>
+                <div className="text-sm sm:text-base text-text-secondary font-medium">Seguidores</div>
               </div>
-              <div className="glass-card p-6 rounded-2xl text-center hover-lift">
-                <div className="text-2xl sm:text-3xl font-bold gradient-text mb-2">{user.following}</div>
-                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">Siguiendo</div>
+              <div className="glass-card p-6 rounded-lg text-center hover-lift">
+                <div className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{user.following}</div>
+                <div className="text-sm sm:text-base text-text-secondary font-medium">Siguiendo</div>
               </div>
             </div>
           )}
@@ -158,8 +157,8 @@ export default function Header() {
       
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-text-secondary rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-text-secondary rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </header>
