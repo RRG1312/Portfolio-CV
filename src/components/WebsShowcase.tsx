@@ -6,13 +6,13 @@ export default function WebsShowcase() {
   const websites = [
     {
       title: "DD Excellence",
-      src: "", // Usuario pondrá la imagen real
+      src: "/dd_mockup.png", // Usuario pondrá la imagen real
       url: "https://ddexcellence.es", // Cambiar por la URL real
     },
     {
-      title: "Work in Progress",
-      src: "/work_in_progress.png",
-      url: null, // Sin URL porque está en desarroll
+      title: "Custom",
+      src: "/captura_para_mpockup.png",
+      url: "https://custom-taupe.vercel.app/", // Sin URL porque está en desarrollo
     },
     {
       title: "Work in Progress",
