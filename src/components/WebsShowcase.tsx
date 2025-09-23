@@ -12,7 +12,7 @@ export default function WebsShowcase() {
     {
       title: "Work in Progress",
       src: "/work_in_progress.png",
-      url: null, // Sin URL porque está en desarrollo
+      url: null, // Sin URL porque está en desarroll
     },
     {
       title: "Work in Progress",
