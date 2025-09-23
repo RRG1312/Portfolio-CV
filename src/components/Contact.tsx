@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { RevealWrapper, StaggerReveal } from "@/components/ui/reveal-wrapper"
 
 declare global {
   interface Window {
@@ -164,15 +165,17 @@ export default function Contact() {
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
-            ¡Trabajemos Juntos!
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Estoy siempre interesado en nuevos proyectos y oportunidades. 
-            No dudes en contactarme si quieres colaborar o simplemente charlar sobre tecnología.
-          </p>
-        </div>
+        <RevealWrapper animation="fadeUp" duration={0.8}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              ¡Trabajemos Juntos!
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Estoy siempre interesado en nuevos proyectos y oportunidades.
+              No dudes en contactarme si quieres colaborar o simplemente charlar sobre tecnología.
+            </p>
+          </div>
+        </RevealWrapper>
         
         {/* Contact Methods Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -202,8 +205,9 @@ export default function Contact() {
         </div>
         
         {/* Contact Form */}
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-8 sm:p-12 rounded-3xl border border-white/20 dark:border-gray-700/30">
+        <RevealWrapper animation="slideUpFade" delay={0.4} duration={0.8}>
+          <div className="max-w-4xl mx-auto">
+            <div className="glass-card p-8 sm:p-12 rounded-3xl border border-white/20 dark:border-gray-700/30">
             <div className="text-center mb-8">
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Envíame un mensaje
@@ -327,8 +331,9 @@ export default function Contact() {
                 </button>
               </div>
             </form>
+            </div>
           </div>
-        </div>
+        </RevealWrapper>
         
         {/* Footer */}
         <footer className="text-center mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">

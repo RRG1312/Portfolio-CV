@@ -1,3 +1,5 @@
+import { RevealWrapper, StaggerReveal } from "@/components/ui/reveal-wrapper";
+
 export default function About() {
   const skillCategories = [
     {
@@ -66,19 +68,22 @@ export default function About() {
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
-            Sobre mí
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Desarrollador apasionado por crear experiencias digitales excepcionales
-          </p>
-        </div>
+        <RevealWrapper animation="fadeUp" duration={0.8}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Sobre mí
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Desarrollador apasionado por crear experiencias digitales excepcionales
+            </p>
+          </div>
+        </RevealWrapper>
         
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - About Text */}
           <div className="space-y-8">
-            <div className="glass-card p-8 rounded-2xl hover-lift">
+            <RevealWrapper animation="slideRight" delay={0.3} duration={0.8}>
+              <div className="glass-card p-8 rounded-2xl hover-lift">
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
                 <span className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white mr-3">
                   🚀
@@ -92,14 +97,16 @@ export default function About() {
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                 Actualmente, en el último año de mi carrera en Ingeniería Informática, trabajo para 
-                convertirme en desarrollador full-stack mientras me especializo en IA. En un proceso constante 
-                de aprendizaje y mejora, veo cada desafío como una oportunidad para crecer y dar forma al futuro 
+                convertirme en desarrollador full-stack mientras me especializo en IA. En un proceso constante
+                de aprendizaje y mejora, veo cada desafío como una oportunidad para crecer y dar forma al futuro
                 con la tecnología..
               </p>
-            </div>
+              </div>
+            </RevealWrapper>
 
             {/* Experience */}
-            <div className="glass-card p-8 rounded-2xl hover-lift">
+            <RevealWrapper animation="slideRight" delay={0.5} duration={0.8}>
+              <div className="glass-card p-8 rounded-2xl hover-lift">
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
                 <span className="w-8 h-8 bg-gradient-to-r from-green-600 to-teal-600 rounded-lg flex items-center justify-center text-white mr-3">
                   💼
@@ -117,12 +124,14 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
+              </div>
+            </RevealWrapper>
           </div>
           
           {/* Right Column - Skills */}
           <div className="space-y-8">
-            <div className="glass-card p-8 rounded-2xl hover-lift">
+            <RevealWrapper animation="slideLeft" delay={0.4} duration={0.8}>
+              <div className="glass-card p-8 rounded-2xl hover-lift">
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
                 <span className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center text-white mr-3">
                   ⚡
@@ -164,10 +173,12 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
-            
+              </div>
+            </RevealWrapper>
+
             {/* Interests */}
-            <div className="glass-card p-8 rounded-2xl hover-lift">
+            <RevealWrapper animation="slideLeft" delay={0.6} duration={0.8}>
+              <div className="glass-card p-8 rounded-2xl hover-lift">
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
                 <span className="w-8 h-8 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-lg flex items-center justify-center text-white mr-3">
                   🎯
@@ -195,7 +206,8 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
+              </div>
+            </RevealWrapper>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { GitHubRepo } from '@/types/github'
+import { RevealWrapper, StaggerReveal } from "@/components/ui/reveal-wrapper"
 
 export default function Projects() {
   const [repos, setRepos] = useState<GitHubRepo[]>([])
@@ -144,21 +145,27 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
-            Proyectos Destacados
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Una selección de mis proyectos más recientes y destacados en GitHub
-          </p>
-        </div>
+        <RevealWrapper animation="fadeUp" duration={0.8}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Proyectos Destacados
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Una selección de mis proyectos más recientes y destacados en GitHub
+            </p>
+          </div>
+        </RevealWrapper>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {repos.map((repo, index) => (
+          <StaggerReveal
+            animation="slideUpFade"
+            staggerDelay={0.15}
+            duration={0.8}
+          >
+            {repos.map((repo, index) => (
             <div
               key={repo.id}
               className="group glass-card rounded-2xl overflow-hidden hover-lift border border-white/20 dark:border-gray-700/30"
-              style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
@@ -258,20 +265,23 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </div>
-          ))}
+              </div>
+            ))}
+          </StaggerReveal>
         </div>
         
-        <div className="text-center mt-16">
-          <a
-            href="https://github.com/RRG1312"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-r from-primary to-primary-dark text-white font-semibold px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
-          >
-            Ver todos los proyectos en GitHub →
-          </a>
-        </div>
+        <RevealWrapper animation="scaleUp" delay={0.5} duration={0.8}>
+          <div className="text-center mt-16">
+            <a
+              href="https://github.com/RRG1312"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gradient-to-r from-primary to-primary-dark text-white font-semibold px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
+            >
+              Ver todos los proyectos en GitHub →
+            </a>
+          </div>
+        </RevealWrapper>
       </div>
     </section>
   )
