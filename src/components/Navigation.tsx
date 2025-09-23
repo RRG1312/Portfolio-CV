@@ -10,6 +10,7 @@ export default function Navigation() {
   const navItems = [
     { name: 'Inicio', href: '#home' },
     { name: 'Sobre mí', href: '#about' },
+    { name: 'Webs', href: '#websites' },
     { name: 'Proyectos', href: '#projects' },
     { name: 'Contacto', href: '#contact' }
   ]
@@ -19,7 +20,7 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 20)
       
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'projects', 'contact']
+      const sections = ['home', 'about', 'websites', 'projects', 'contact']
       const current = sections.find(section => {
         const element = document.getElementById(section)
         if (element) {
