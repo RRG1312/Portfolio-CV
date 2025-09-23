@@ -13,7 +13,7 @@ export const useReveal = ({
   triggerOnce = true,
 }: UseRevealOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = ref.current;
