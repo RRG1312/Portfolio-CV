@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Header from '@/components/Header'
 import About from '@/components/About'
+import WebsShowcase from '@/components/WebsShowcase'
 import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
 
@@ -33,6 +34,9 @@ export default function Home() {
       </section>
       <section id="about">
         <About />
+      </section>
+      <section id="websites">
+        <WebsShowcase />
       </section>
       <section id="projects">
         <Projects />
