@@ -132,7 +132,7 @@ export default function Contact() {
       description: 'Contáctame directamente',
       value: 'ruben.ben111@gmail.com',
       href: 'mailto:ruben.ben111@gmail.com',
-      gradient: 'from-blue-500 to-blue-600'
+      gradient: 'from-primary to-primary-hover'
     },
     {
       icon: '💼',
@@ -140,7 +140,7 @@ export default function Contact() {
       description: 'Conectemos profesionalmente',
       value: 'Ruben Rodriguez',
       href: 'https://www.linkedin.com/in/ruben-rodriguez-193a71212/',
-      gradient: 'from-blue-600 to-blue-700'
+      gradient: 'from-primary-600 to-primary-700'
     },
     {
       icon: '🐙',
@@ -148,7 +148,7 @@ export default function Contact() {
       description: 'Explora mis proyectos',
       value: 'RRG1312',
       href: 'https://github.com/RRG1312',
-      gradient: 'from-gray-700 to-gray-800'
+      gradient: 'from-primary-700 to-primary-800'
     },
     {
       icon: '💬',
@@ -156,17 +156,12 @@ export default function Contact() {
       description: 'Charlemos sobre código',
       value: '@rubenibz13',
       href: 'https://discord.com/',
-      gradient: 'from-indigo-500 to-purple-600'
+      gradient: 'from-primary-500 to-primary-600'
     }
   ]
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 -right-32 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 -left-32 w-96 h-96 bg-gradient-to-tr from-teal-400/10 to-blue-600/10 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
-      </div>
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -193,7 +188,7 @@ export default function Contact() {
               <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${method.gradient} rounded-2xl flex items-center justify-center text-2xl text-white group-hover:scale-110 transition-transform duration-300`}>
                 {method.icon}
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
                 {method.title}
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
@@ -230,7 +225,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
                   placeholder="Tu nombre completo"
                 />
               </div>
@@ -246,7 +241,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -261,7 +256,7 @@ export default function Contact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300"
                   placeholder="¿De qué quieres hablar?"
                 />
               </div>
@@ -275,7 +270,7 @@ export default function Contact() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white transition-all duration-300"
                 >
                   <option value="">Seleccionar rango</option>
                   <option value="< $1,000">Menos de $1,000</option>
@@ -296,7 +291,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 dark:text-white placeholder-gray-400 transition-all duration-300 resize-none"
                   placeholder="Cuéntame sobre tu proyecto, tus ideas, o simplemente di hola..."
                 ></textarea>
               </div>
@@ -311,7 +306,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={formStatus === 'sending'}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full bg-gradient-to-r from-primary to-primary-hover text-white font-semibold py-4 px-8 rounded-xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {formStatus === 'idle' && 'Enviar mensaje'}
                   {formStatus === 'sending' && (

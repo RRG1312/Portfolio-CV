@@ -52,26 +52,21 @@ export default function Header() {
 
   if (loading) {
     return (
-      <header className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="animate-spin rounded-full h-32 w-32 border-4 border-blue-500/20 border-t-blue-500 animate-glow"></div>
+      <header className="min-h-screen flex items-center justify-center relative">
+        <div className="animate-spin rounded-full h-32 w-32 border-4 border-gray-200 border-t-accent"></div>
       </header>
     )
   }
 
   return (
-    <header className="min-h-screen relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-teal-400/20 to-blue-600/20 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
-      </div>
+    <header className="min-h-screen relative overflow-hidden">
       
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-5xl mx-auto">
           <div className="mb-12">
             {user?.avatar_url && (
               <div className="relative mb-8">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur animate-glow"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary-light rounded-full blur animate-glow"></div>
                 <Image
                   src={user.avatar_url}
                   alt={user.name || user.login}
@@ -102,12 +97,12 @@ export default function Header() {
           
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
             {user?.location && (
-              <span className="glass-card text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium hover-lift">
+              <span className="glass-card text-primary-700 px-4 py-2 rounded-full text-sm font-medium hover-lift border border-primary-200">
                 📍 {user.location}
               </span>
             )}
             {user?.company && (
-              <span className="glass-card text-green-800 dark:text-green-200 px-4 py-2 rounded-full text-sm font-medium hover-lift">
+              <span className="glass-card text-primary-600 px-4 py-2 rounded-full text-sm font-medium hover-lift border border-primary-200">
                 🏢 {user.company}
               </span>
             )}
@@ -119,10 +114,10 @@ export default function Header() {
                 href={user.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1"
+                className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary-hover text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
               >
                 <span className="relative z-10">Ver GitHub</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-hover to-primary-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
             )}
             {user?.blog && (

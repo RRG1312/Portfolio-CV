@@ -93,7 +93,7 @@ export default function Projects() {
   const generateProjectImage = (repoName: string, language: string) => {
     // Generate a simple SVG as placeholder since we don't have real images
     const gradients = [
-      'from-blue-400 to-purple-600',
+      'from-blue-400 to-purple-00',
       'from-green-400 to-teal-600', 
       'from-purple-400 to-pink-600',
       'from-yellow-400 to-orange-600',
@@ -118,7 +118,7 @@ export default function Projects() {
 
   if (loading) {
     return (
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16 gradient-text">
             Proyectos Destacados
@@ -142,7 +142,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
@@ -164,12 +164,12 @@ export default function Projects() {
               <div className="relative h-48 overflow-hidden">
                 <div className={`w-full h-full bg-gradient-to-br ${
                   [
-                    'from-blue-400 to-purple-600',
-                    'from-green-400 to-teal-600', 
-                    'from-purple-400 to-pink-600',
-                    'from-yellow-400 to-orange-600',
-                    'from-indigo-400 to-blue-600',
-                    'from-pink-400 to-red-600'
+                    'from-primary-200 to-primary-600',
+                    'from-primary-800 to-gray-500',
+                    'from-gray-300 to-primary-600',
+                    'from-primary-100 to-primary-500',
+                    'from-primary-600 to-gray-500',
+                    'from-gray-400 to-primary-600'
                   ][index % 6]
                 } flex items-center justify-center`}>
                   <div className="text-white text-center">
@@ -194,7 +194,7 @@ export default function Projects() {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
                     {repo.name}
                   </h3>
                 </div>
@@ -228,7 +228,7 @@ export default function Projects() {
                     {repo.topics.slice(0, 3).map((topic) => (
                       <span
                         key={topic}
-                        className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-xs font-medium"
+                        className="bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 px-2 py-1 rounded-full text-xs font-medium"
                       >
                         {topic}
                       </span>
@@ -242,7 +242,7 @@ export default function Projects() {
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-0.5"
+                    className="flex-1 text-center bg-gradient-to-r from-primary to-primary-hover text-white text-sm font-semibold py-2 px-4 rounded-lg hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
                   >
                     Ver Código
                   </a>
@@ -267,7 +267,7 @@ export default function Projects() {
             href="https://github.com/RRG1312"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 dark:from-white dark:to-gray-100 text-white dark:text-gray-900 font-semibold px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-gray-500/25 transition-all duration-300 hover:-translate-y-1"
+            className="inline-block bg-gradient-to-r from-primary to-primary-dark text-white font-semibold px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
           >
             Ver todos los proyectos en GitHub →
           </a>

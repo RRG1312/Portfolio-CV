@@ -63,12 +63,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 -right-20 w-72 h-72 bg-blue-400/5 dark:bg-blue-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 -left-20 w-72 h-72 bg-purple-400/5 dark:bg-purple-600/10 rounded-full blur-3xl"></div>
-      </div>
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
