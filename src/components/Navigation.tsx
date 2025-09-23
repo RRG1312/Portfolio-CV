@@ -75,13 +75,13 @@ export default function Navigation() {
                   onClick={() => scrollToSection(item.href)}
                   className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.href
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                      ? 'text-primary'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-primary'
                   }`}
                 >
                   {item.name}
                   {activeSection === item.href && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-primary-light rounded-full"></div>
                   )}
                 </button>
               ))}
@@ -169,7 +169,7 @@ export default function Navigation() {
       {isScrolled && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-bounce"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-primary to-primary-hover text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-1 transition-all duration-300 animate-bounce"
           aria-label="Scroll to top"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

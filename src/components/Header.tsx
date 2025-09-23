@@ -66,7 +66,7 @@ export default function Header() {
           <div className="mb-12">
             {user?.avatar_url && (
               <div className="relative mb-8">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur animate-glow"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary-light rounded-full blur animate-glow"></div>
                 <Image
                   src={user.avatar_url}
                   alt={user.name || user.login}
@@ -97,12 +97,12 @@ export default function Header() {
           
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
             {user?.location && (
-              <span className="glass-card text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium hover-lift">
+              <span className="glass-card text-primary-700 px-4 py-2 rounded-full text-sm font-medium hover-lift border border-primary-200">
                 📍 {user.location}
               </span>
             )}
             {user?.company && (
-              <span className="glass-card text-green-800 dark:text-green-200 px-4 py-2 rounded-full text-sm font-medium hover-lift">
+              <span className="glass-card text-primary-600 px-4 py-2 rounded-full text-sm font-medium hover-lift border border-primary-200">
                 🏢 {user.company}
               </span>
             )}
@@ -114,10 +114,10 @@ export default function Header() {
                 href={user.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:-translate-y-1"
+                className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary-hover text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-1"
               >
                 <span className="relative z-10">Ver GitHub</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-hover to-primary-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
             )}
             {user?.blog && (
