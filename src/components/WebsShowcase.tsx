@@ -19,6 +19,11 @@ export default function WebsShowcase() {
       src: "/work_in_progress.png",
       url: null, // Sin URL porque está en desarrollo
     },
+    {
+      title: "Work in Progress",
+      src: "/work_in_progress.png",
+      url: null, // Sin URL porque está en desarrollo
+    },
   ];
 
   return (
