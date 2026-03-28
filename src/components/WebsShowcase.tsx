@@ -7,23 +7,28 @@ export default function WebsShowcase() {
   const websites = [
     {
       title: "DD Excellence",
-      src: "/dd_mockup.png", // Usuario pondrá la imagen real
-      url: "https://ddexcellence.es", // Cambiar por la URL real
+      src: "/dd_mockup.png",
+      url: "https://ddexcellence.es",
     },
     {
-      title: "Custom",
-      src: "/captura_para_mpockup.png",
-      url: "https://custom-taupe.vercel.app/", // Sin URL porque está en desarrollo
+      title: "BM Global Capital",
+      src: "/bmglobalcapital_mockup.png",
+      url: "https://bmglobalcapital.info/",
     },
     {
-      title: "Work in Progress",
-      src: "/work_in_progress.png",
-      url: null, // Sin URL porque está en desarrollo
+      title: "Asia Hotel",
+      src: "/asiahotel_mockup.png",
+      url: "https://www.asiahotel.com.pe/",
     },
     {
-      title: "Work in Progress",
-      src: "/work_in_progress.png",
-      url: null, // Sin URL porque está en desarrollo
+      title: "Anguna Navarro",
+      src: "/angunavarro_mockup.png",
+      url: "https://angunavarro.com/",
+    },
+    {
+      title: "Instalación Baterías Madrid",
+      src: "/bateriasmadrid_mockup.png",
+      url: "https://instalacionbateriasmadrid.com/",
     },
   ];
 
