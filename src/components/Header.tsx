@@ -62,7 +62,7 @@ export default function Header() {
   return (
     <header className="min-h-screen relative overflow-hidden">
       
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
         <div className="text-center max-w-5xl mx-auto">
           <div className="mb-12">
             {user?.avatar_url && (
