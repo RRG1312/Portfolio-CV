@@ -49,17 +49,17 @@ export default function About() {
 
   const experiences = [
     {
-      title: 'Consultor GRC en Prácticas',
+      title: 'Prácticas en Departamento GRC',
       company: 'KPMG',
       period: '2025 - 2026',
-      description: 'Desarrollo y personalización de herramientas de gestión de riesgos y controles para clientes. Revisión y adaptación de matrices de riesgo y control al formato KPMG. Comunicación directa con clientes para análisis de requisitos y desarrollo de soluciones personalizadas. Despliegue de herramientas en entornos cliente.',
+      description: 'Desarrollo y personalización de herramientas de gestión de riesgos y controles para clientes. Revisión y adaptación de matrices de riesgo y control. Comunicación con clientes para análisis de requisitos. Despliegue de soluciones en entornos cliente.',
       tags: ['GRC', 'Gestión de Riesgos', 'Client-Facing', 'Despliegue']
     },
     {
       title: 'Grado en Ingeniería Informática',
       company: 'Universidad Alfonso X el Sabio',
       period: '2022 - 2026',
-      description: 'Estudios superiores en ingeniería informática con especialización en desarrollo de software y tecnologías emergentes'
+      description: 'Formación en ingeniería informática abarcando desarrollo de software, bases de datos, redes, sistemas y fundamentos de inteligencia artificial'
     },
     {
       title: 'Desarrollador Web',
